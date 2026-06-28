@@ -1,0 +1,137 @@
+:root {
+    /* Color */
+    --cp-green-500: hsl(158, 36%, 37%);
+    --cp-green-700: hsl(158, 42%, 18%);
+
+    --cn-black: hsl(212, 21%, 14%);
+    --cn-white: hsl(0, 0%, 100%);
+    --cn-grey: hsl(228, 12%, 48%);
+    --cn-cream: hsl(30, 38%, 92%);
+
+    /* Sizes (I don't use all of them) */
+    --s2: 0.125rem;
+    --s4: 0.25rem;
+    --s8: 0.5rem;
+    --s12: 0.75rem;
+    --s14: 0.875rem;
+    --s16: 1rem;
+    --s18: 1.125rem;
+    --s20: 1.25rem;
+    --s22: 1.375rem;
+    --s24: 1.5rem;
+    --s28: 1.75rem;
+    --s32: 2rem;
+    --s36: 2.25rem;
+    --s64: 4rem;
+
+    /* Font */
+    --ff-montserrat: "Montserrat", sans-serif;
+    --ff-fraunces: "Fraunces", serif;
+
+    /* Font sizes */
+    --fs-1: var(--s14);
+
+    /* Breakpoint (I don't know if I should use this) */
+    --bp-600: 37.5rem;
+}
+
+/* Globals */
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: var(--fs-1);
+}
+
+body {
+    background-color: var(--cn-cream);
+    padding-inline: var(--s16);
+    color: var(--cn-grey);
+    font-family: var(--ff-montserrat);
+}
+
+main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+picture {
+    img {
+        height: 100%;
+        max-inline-size: 100%;
+        object-fit: cover;
+        block-size: auto;
+        display: block;
+    }
+}
+
+button {
+    border: 0;
+    border-radius: var(--s8);
+    color: var(--cn-white);
+    font-weight: 500;
+    padding-block: var(--s16);
+    background-color: var(--cp-green-500);
+    display: flex;
+    justify-content: center;
+    gap: var(--s16);
+}
+
+.card {
+    background-color: var(--cn-white);
+    border-radius: var(--s8);
+    overflow: hidden;
+
+    .card-details {
+        padding: var(--s36);
+        display: flex;
+        flex-direction: column;
+        gap: var(--s28);
+    }
+}
+
+.item-category {
+    letter-spacing: var(--s4);
+    text-transform: uppercase;
+}
+
+.item-title {
+    font-family: var(--ff-fraunces);
+    color: var(--cn-black);
+    font-size: var(--s32);
+    line-height: var(--s32);
+}
+
+.item-desc {
+    line-height: var(--s22);
+}
+
+.item-price {
+    display: flex;
+    gap: var(--s16);
+    align-items: center;
+
+    span:first-child {
+        font-family: var(--ff-fraunces);
+        font-size: var(--s32);
+        color: var(--cp-green-500);
+    }
+
+    span:last-child {
+        text-decoration: line-through;
+    }
+}
+
+@media (min-width: 37.5rem) { /* 600px */
+    .card {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 40rem;
+    }
+}
